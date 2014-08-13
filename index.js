@@ -124,13 +124,13 @@ function merge(objFrom, objTo, propMap) {
       }
 
       for(x = 0; x < toKey.length; x++) {
-        def = null;
+        def = undefined;
         transform = null;
         key = toKey[x];
         keyIsArray = Array.isArray(key);
 
         if (typeof(key) === "object" && !keyIsArray) {
-          def = key.default || null;
+          def = key.default || undefined;
           transform = key.transform || null;
           key = key.key;
 	  //evaluate if the new key is an array
@@ -139,7 +139,7 @@ function merge(objFrom, objTo, propMap) {
 
 	if (keyIsArray) {
           //key[toKeyName,transform,default]
-          def = key[2] || null;
+          def = key[2] || undefined;
           transform = key[1] || null;
           key = key[0];
         }
